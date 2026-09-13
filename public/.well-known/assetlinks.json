@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.netlify.sidapore.twa",
+      "sha256_cert_fingerprints": ["4C:75:4E:8E:62:8F:11:F6:94:D0:8F:8A:C4:55:AB:9D:3E:19:03:DD:84:EF:02:83:D4:98:5C:07:4A:B8:FA:23"]
+    }
+  }
+]

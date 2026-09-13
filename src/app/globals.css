@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl2 px-5 py-3 font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500;
+}
+.btn-primary {
+  @apply btn bg-teal-500 text-white hover:bg-teal-600;
+}
+.btn-outline {
+  @apply btn border border-teal-500 text-teal-600 hover:bg-teal-50;
+}
+.btn-amber {
+  @apply btn bg-amber-400 text-ink hover:bg-amber-500;
+}
+
+.card {
+  @apply rounded-xl2 border border-teal-100 bg-white p-6 shadow-sm;
+}
+
+.input {
+  @apply w-full rounded-lg border border-teal-100 bg-white px-4 py-3 text-ink placeholder:text-ink/40 focus:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-100;
+}
+
+.label {
+  @apply mb-1.5 block text-sm font-medium text-ink/70;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
+}
+
+/* Layout khusus kasir (Depot/Laundry/Kos): di HP saat diputar ke landscape,
+   form & struk ditampilkan berdampingan supaya tidak perlu scroll panjang.
+   Halaman lain sengaja TIDAK memakai class ini (cukup responsive biasa). */
+.kasir-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .kasir-screen {
+    max-width: none;
+  }
+  .kasir-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(220px, 340px);
+    align-items: start;
+    gap: 1rem;
+  }
+  .kasir-screen .card {
+    padding: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .kasir-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, 360px);
+    align-items: start;
+  }
+}
