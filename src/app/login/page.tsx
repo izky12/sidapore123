@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { Suspense } from "react";
 
@@ -81,6 +82,12 @@ function LoginForm() {
       <button type="submit" disabled={loading} className="btn-primary w-full">
         {loading ? "Masuk..." : "Masuk"}
       </button>
+      <Link
+        href="/"
+        className="block w-full rounded-lg border border-teal-100 py-2.5 text-center text-sm font-medium text-ink/70 hover:bg-teal-50"
+      >
+        ← Kembali ke Beranda
+      </Link>
     </form>
   );
 }
