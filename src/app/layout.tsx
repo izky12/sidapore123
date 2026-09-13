@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { getProfile } from "@/lib/getProfile";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import InstallAppBanner from "@/components/InstallAppBanner";
+import BottomNav from "@/components/BottomNav";
 
 export const revalidate = 300; // cek ulang kode verifikasi tiap 5 menit
 
@@ -78,6 +80,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const googleVerificationContent = await getGoogleVerification();
+  const profile = await getProfile();
 
   return (
     <html lang="id">
@@ -94,10 +97,11 @@ export default async function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-paper text-ink font-body antialiased">
+      <body className="bg-paper text-ink font-body antialiased pb-16 md:pb-0">
         <ServiceWorkerRegister />
         <InstallAppBanner />
         {children}
+        <BottomNav role={profile?.role} />
       </body>
     </html>
   );
