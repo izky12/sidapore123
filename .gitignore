@@ -3,3 +3,47 @@
 .env
 .env.local
 .env.*.local
+
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+next-env.d.ts
+*.tsbuildinfo
+
+# Environment variables — JANGAN pernah commit, berisi kunci rahasia
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# Netlify local state/cache (berisi path lokal komputer kamu, bukan untuk repo)
+.netlify/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Editor/OS junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Supabase CLI local state (kalau nanti pakai `supabase` CLI di komputer)
+.supabase/
+
+# --- Kalau nanti PWABuilder mengunduh project Android (Trusted Web Activity)
+# --- dan kamu simpan di dalam folder yang sama dengan repo ini, tambahkan juga:
+# android/build/
+# android/.gradle/
+# android/local.properties
+# *.apk
+# *.aab
